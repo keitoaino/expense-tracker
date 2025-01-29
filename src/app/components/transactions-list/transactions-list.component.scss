@@ -1,3 +1,5 @@
+@use "sass:color";
+
 $color-emerald: #2ecc71;
 
 p.total-amount {
@@ -10,7 +12,7 @@ table {
   border-spacing: 0;
 
   tr:nth-child(odd) td {
-    background-color: transparentize($color-emerald, .8);
+    background-color: color.adjust($color-emerald, $alpha: -0.8);
   }
 
   th {

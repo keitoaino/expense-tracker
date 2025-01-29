@@ -1,4 +1,4 @@
-import { CurrencyPipe, DatePipe, NgFor } from '@angular/common';
+import { CurrencyPipe, DatePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
 import { TransactionsStore } from '../../store/transactions.store';
@@ -10,7 +10,6 @@ import { TransactionType } from '../../types/transaction-type.type';
   imports: [
     CurrencyPipe,
     DatePipe,
-    NgFor,
     TransactionCategoryPipe,
   ],
   providers: [TransactionsStore],
