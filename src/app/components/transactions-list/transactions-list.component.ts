@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
 import { TransactionsStore } from '../../store/transactions.store';
 import { TransactionCategoryPipe } from '../../pipes/transaction-category.pipe';
+import { TransactionType } from '../../types/transaction-type.type';
 
 @Component({
   standalone: true,
@@ -23,4 +24,6 @@ export class TransactionsListComponent {
 
   readonly transactions = this.store.transactions();
   readonly totalAmount = this.store.totalAmount();
+
+  readonly TransactionType = TransactionType;
 }
