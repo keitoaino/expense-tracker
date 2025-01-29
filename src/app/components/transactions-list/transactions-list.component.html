@@ -1,0 +1,16 @@
+<p class="total-amount">Total amount: {{ totalAmount | currency }}</p>
+
+<table>
+  <tr>
+    <th>Transaction Name</th>
+    <th>Amount</th>
+    <th>Category</th>
+    <th>Date</th>
+  </tr>
+  <tr *ngFor="let transaction of transactions">
+    <td>{{ transaction.name }}</td>
+    <td>{{ transaction.amount | currency }}</td>
+    <td>{{ transaction.category | transactionCategory }}</td>
+    <td>{{ transaction.date | date }}</td>
+  </tr>
+</table>
