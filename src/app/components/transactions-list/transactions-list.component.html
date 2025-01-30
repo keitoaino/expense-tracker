@@ -1,4 +1,30 @@
-<p class="total-amount">Total amount: {{ totalAmount | currency }}</p>
+<div class="actions">
+  <form class="filters" [formGroup]="filtersForm">
+    <div class="field">
+      <label for="type">Type:</label>
+      <select id="type" formControlName="type">
+        <option [ngValue]="null">All</option>
+
+        @for (option of transactionTypeOptions; track option.key) {
+          <option [ngValue]="option.key">{{ option.value }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="category">Category:</label>
+      <select id="category" formControlName="category">
+        <option [ngValue]="null">All</option>
+
+        @for (option of transactionCategoryOptions; track option.key) {
+          <option [ngValue]="option.key">{{ option.value }}</option>
+        }
+      </select>
+    </div>
+  </form>
+</div>
+
+<p class="total-amount">Total amount: {{ totalAmount() | currency }}</p>
 
 <table>
   <tr>
@@ -8,14 +34,16 @@
     <th>Date</th>
   </tr>
 
-  @for (transaction of transactions; track transaction.name) {
+  @for (transaction of transactions(); track transaction.name) {
     <tr>
       <td>{{ transaction.name }}</td>
+
       @if (transaction.type === TransactionType.Income) {
         <td>{{ transaction.amount | currency }}</td>
       } @else {
         <td>({{ transaction.amount | currency }})</td>
       }
+
       <td>{{ transaction.category | transactionCategory }}</td>
       <td>{{ transaction.date | date }}</td>
     </tr>

@@ -2,13 +2,34 @@
 
 $color-emerald: #2ecc71;
 
+.actions, p.total-amount, table {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.actions {
+  margin: 32px auto;
+
+  .filters {
+    display: flex;
+    flex-direction: row;
+
+    .field {
+      margin-right: 16px;
+
+      label {
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
 p.total-amount {
-  margin-left: 10%;
+  text-align: right;
+  font-weight: bold;
 }
 
 table {
-  width: 80%;
-  margin: 0 auto;
   border-spacing: 0;
 
   tr:nth-child(odd) td {
